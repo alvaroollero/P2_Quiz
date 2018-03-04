@@ -62,10 +62,10 @@ exports.testCmd= (rl,id) =>{
       rl.question(`${colorize(quiz.question,"red")} `, answer=>{
         if(answer.toUpperCase()===quiz.answer.toUpperCase()){
           log("Su respuesta es correcta");
-          log("CORRECTA","green");
+          biglog("CORRECTA","green");
         }else{
           log("Su respuesta es incorrecta");
-          log("INCORRECTA","red");
+          biglog("INCORRECTA","red");
         }
         rl.prompt();
       });
@@ -111,7 +111,7 @@ const playOne=()=>{
 
          if(numtotalquiz===0){
            log(`No hay nada mas que preguntar.\nFin del juego. Aciertos: ${score}`);
-           log(`${score}`,"magenta");
+           biglog(`${score}`,"magenta");
          }else{
           log(`CORRECTO-Lleva ${score} acierto`);
           playOne();
@@ -119,7 +119,7 @@ const playOne=()=>{
           
         }else{
          log(`INCORRECTO.\nFin del juego. Aciertos: ${score}`);
-         log(`${score}`,"red");
+         biglog(`${score}`,"red");
         }
         rl.prompt();
       });
