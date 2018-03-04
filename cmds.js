@@ -23,7 +23,7 @@ exports.quitCmd=rl=>{
 
 exports.addCmd=rl=>{
   rl.question(colorize("Introduzca una pregunta: ","red"),question=>{
-    rl.question(colorize("Introduzca una respuesta: ","red"),answer =>{
+    rl.question(colorize("Introduzca la respuesta: ","red"),answer =>{
       model.add(question,answer);
       log(`${colorize("Se ha añadido","magenta")}: ${question} ${colorize("=>","magenta")}${answer}`);
       rl.prompt();
@@ -40,7 +40,7 @@ exports.listCmd=rl=>{
 
 exports.showCmd= (rl,id) =>{
   if(typeof id==="undefined"){
-    errorlog("Falta el parametro id");
+    errorlog("El valor del parámetro id no es válido.");
   }else{
     try{
       const quiz=model.getByIndex(id);
@@ -110,15 +110,15 @@ const playOne=()=>{
           numtotalquiz-=1;
 
          if(numtotalquiz===0){
-           log(`has respondido a todos\nFin del juego. Aciertos: ${score}`);
+           log(`Fin del juego. Aciertos: ${score}`);
            biglog(`${score}`,"blue");
          }else{
-          log(`CORRECTA. Lleva ${score} correctas`);
+          log(`CORRECTO-Lleva ${score} acierto`);
           playOne();
          };
           
         }else{
-         log(`INCORRECTA. Puntuacion:${score}`);
+         log(`INCORRECTO.\nFin del juego. Aciertos: ${score}`);
          biglog(`${score}`,"red");
         }
         rl.prompt();
