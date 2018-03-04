@@ -169,7 +169,7 @@ exports.editCmd= (rl,id) =>{
 
 exports.creditsCmd=rl=>{
   log("Autores de la practica","green");
-  log("ALVARO","green");
+  log("ALVARO OLLERO","green");
   rl.prompt();
 };
 
