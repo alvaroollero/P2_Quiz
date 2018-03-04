@@ -110,7 +110,7 @@ const playOne=()=>{
           numtotalquiz-=1;
 
          if(numtotalquiz===0){
-           log(`has respondido a todos \n Fin. Aciertos ${score}`);
+           log(`has respondido a todos\nFin del juego. Aciertos: ${score}`);
            biglog(`${score}`,"blue");
          }else{
           log(`CORRECTA. Lleva ${score} correctas`);
@@ -169,7 +169,7 @@ exports.editCmd= (rl,id) =>{
 
 exports.creditsCmd=rl=>{
   log("Autores de la practica","green");
-  log("Álvaro Ollero","green");
+  log("ALVARO","green");
   rl.prompt();
 };
 
