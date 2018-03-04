@@ -92,7 +92,7 @@ const aleatorio=()=>{
 const playOne=()=>{
 
  if(toBeResolved.length===0){
-  log("Has respondido a todos","red");
+  log("No hay mas preguntas que responder","red");
   rl.prompt();
  }else{
   aleatorio();
@@ -110,8 +110,8 @@ const playOne=()=>{
           numtotalquiz-=1;
 
          if(numtotalquiz===0){
-           log(`Fin del juego. Aciertos: ${score}`);
-           biglog(`${score}`,"blue");
+           log(`No hay nada mas que preguntar.\nFin del juego. Aciertos: ${score}`);
+           biglog(`${score}`,"magenta");
          }else{
           log(`CORRECTO-Lleva ${score} acierto`);
           playOne();
