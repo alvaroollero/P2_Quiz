@@ -33,7 +33,7 @@ exports.addCmd=rl=>{
 
 exports.listCmd=rl=>{
   model.getAll().forEach((quiz,id) =>{
-    log(`[${colorize(id,"magenta")}]:${quiz.question}`);
+    log(`[${colorize(id,"magenta")}]:${quiz.question+""}`);
   });
   rl.prompt();
 };
@@ -59,7 +59,7 @@ exports.testCmd= (rl,id) =>{
   }else{
     try{
       const quiz=model.getByIndex(id);
-      rl.question(`${colorize(quiz.question,"red")}`, answer=>{
+      rl.question(`${colorize(quiz.question,"red")} `, answer=>{
         if(answer.toUpperCase()===quiz.answer.toUpperCase()){
           log("Su respuesta es correcta");
           biglog("CORRECTA","green");
@@ -104,7 +104,7 @@ const playOne=()=>{
   let quiz=model.getByIndex(id);
   toBeResolved.splice(id,1,"nada");
 
-      rl.question(`${colorize(quiz.question,"red")}`, answer=>{
+      rl.question(`${colorize(quiz.question,"red")} `, answer=>{
         if(answer.toUpperCase()===quiz.answer.toUpperCase()){
           score+=1;
           numtotalquiz-=1;
