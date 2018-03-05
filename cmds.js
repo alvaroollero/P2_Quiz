@@ -118,7 +118,7 @@ const playOne=()=>{
          };
           
         }else{
-         log(`INCORRECTO.\nFin del juego. Aciertos: ${score}`);
+         log(`INCORRECTO.\nFin. Aciertos: ${score}`);
          biglog(`${score}`,"red");
         }
         rl.prompt();
