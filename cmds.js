@@ -113,12 +113,12 @@ const playOne=()=>{
            log(`No hay nada mas que preguntar.\nFin del juego. Aciertos: ${score}`);
            biglog(`${score}`,"magenta");
          }else{
-          log(`CORRECTO - Lleva ${score} acierto`);
+          log(`CORRECTO - Lleva ${score} aciertos`);
           playOne();
          };
           
         }else{
-         log(`INCORRECTO.\nFin. Aciertos: ${score}`);
+         log(`INCORRECTO.\nFin del juego. Aciertos: ${score}`);
          biglog(`${score}`,"red");
         }
         rl.prompt();
