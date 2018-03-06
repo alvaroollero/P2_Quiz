@@ -110,7 +110,6 @@ const playOne=()=>{
           numtotalquiz-=1;
 
          if(numtotalquiz===0){
-           log()
            log(`CORRECTO - Lleva  ${score} aciertos.\nNo hay nada mas que preguntar.\nFin del juego. Aciertos: ${score}`);
            biglog(`${score}`,"magenta");
          }else{
