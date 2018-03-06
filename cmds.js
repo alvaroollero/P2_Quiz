@@ -168,7 +168,7 @@ exports.editCmd= (rl,id) =>{
 };
 
 exports.creditsCmd=rl=>{
-  log("Autores de la practica","green");
+  log("Autores de la practica:","green");
   log("ALVARO OLLERO","green");
   rl.prompt();
 };
