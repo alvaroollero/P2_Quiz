@@ -61,11 +61,11 @@ exports.testCmd= (rl,id) =>{
       const quiz=model.getByIndex(id);
       rl.question(`${colorize(quiz.question,"red")} `, answer=>{
         if(answer.toUpperCase()===quiz.answer.toUpperCase()){
-          log("Su respuesta es correcta");
+          log("Su respuesta es correcta.");
           biglog("CORRECTA","green");
         }else{
-          log("Su respuesta es incorrecta");
-          biglog("INCORRECTA","red");
+          log("Su respuesta es incorrecta.");
+          biglog("INCORRECTA","magenta");
         }
         rl.prompt();
       });
@@ -92,7 +92,7 @@ const aleatorio=()=>{
 const playOne=()=>{
 
  if(toBeResolved.length===0){
-  log("No hay mas preguntas que responder","red");
+  log("No hay más preguntas que responder","red");
   rl.prompt();
  }else{
   aleatorio();
