@@ -111,15 +111,15 @@ const playOne=()=>{
 
          if(numtotalquiz===0){
            log(`No hay nada mas que preguntar.\nFin del juego. Aciertos: ${score}`);
-           log(`${score}`,"magenta");
+           biglog(`${score}`,"magenta");
          }else{
-          log(`CORRECTO-Lleva ${score} acierto`);
+          log(`CORRECTO - Lleva ${score} acierto`);
           playOne();
          };
           
         }else{
          log(`INCORRECTO.\nFin. Aciertos: ${score}`);
-         log(`${score}`,"red");
+         biglog(`${score}`,"red");
         }
         rl.prompt();
       });
