@@ -76,56 +76,64 @@ exports.testCmd= (rl,id) =>{
   }
 };
 
-exports.playCmd=rl=>{ 
-let score=0;
-let toBeResolved=[];
-let numtotalquiz=model.count();
-
- for(var i=0;i<model.count();i++){
-  toBeResolved[i]=i;
- };
-
-const aleatorio=()=>{
-  id=Math.floor(Math.random()*toBeResolved.length);
+exports.playCmd = rl => {
+  
+    let score = 0;
+    let toBeResolved = [];
+    let total = model.count();
+    //log(`${prueba}`, "red");   
+    for (var i = 0; i < model.count(); i++) {
+        toBeResolved[i]=i;
+        //log(`${i}`, "red"); 
+    };
+const aleatorio = () => {
+    id = Math.floor(Math.random()*toBeResolved.length);
 }
 
-const playOne=()=>{
+const playOne = () => {
 
- if(toBeResolved.length===0){
-  log("No hay más preguntas que responder","red");
-  rl.prompt();
- }else{
-  aleatorio();
-
-  while(toBeResolved[id]==="nada"){
-    aleatorio();
-  }
-
-  let quiz=model.getByIndex(id);
-  toBeResolved.splice(id,1,"nada");
-
-      rl.question(`${colorize(quiz.question,"red")} `, answer=>{
-        if(answer.toUpperCase()===quiz.answer.toUpperCase()){
-          score+=1;
-          numtotalquiz-=1;
-
-         if(numtotalquiz===0){
-           log(`CORRECTO - Lleva ${score} aciertos.\nNo hay nada más que preguntar.\nFin del juego. Aciertos: ${score}`);
-           biglog(`${score}`,"magenta");
-         }else{
-          log(`CORRECTO - Lleva ${score} aciertos.`);
-          playOne();
-         };
-          
-        }else{
-         log(`INCORRECTO.\nFin del juego. Aciertos: ${score}`);
-         biglog(`${score}`,"red");
-        }
+    if (toBeResolved.length === 0){
+        log("No hay más preguntas que responder", "red");
         rl.prompt();
-      });
-    };
-  }
-    playOne();
+    
+    }else{
+
+        aleatorio();
+
+        while(toBeResolved[id]==="nada"){
+            aleatorio();
+        }
+
+        //let id = Math.floor(Math.random()*toBeResolved.length);
+        let quiz = model.getByIndex(id);
+
+
+        toBeResolved.splice(id,1,"nada");
+        
+            rl.question(`${colorize(quiz.question, 'red')} `, answer => {
+                
+                if(answet.toUpperCase() === quiz.answer.toUpperCase()){
+                    score+=1;
+                    total-=1;
+
+                    if(total === 0){
+                        log(`No hay nada más que preguntar\nFin del juego. Aciertos: ${score}`);
+                        biglog(`${score}`, "magenta");
+                    }else{
+                            log(`CORRECTO - Lleva ${score} aciertos`);
+                            playOne();
+                        };
+                }else{
+                    log(`INCORRECTO\nFin del juego. Aciertos: ${score}`);
+                    biglog(`${score}`, 'red');
+                }
+                rl.prompt();
+            });
+        };
+
+}
+playOne();
+
 };
 
 exports.deleteCmd= (rl,id) =>{
